@@ -13,6 +13,7 @@ class App extends Component {
       currentUser: 'Michael',
       currentChatroom: '',
       token: '',
+      // loggedIn: false,
       loggedIn: false,
       // chatrooms: [{title:'Michael', status:'Closed', password:''}, {title:'Kai', status:'Closed', password:''}, {title:'Catilin', status:'Open', password:''}],
       favorites: ['David', 'Yuanji', 'Evan', 'Charlie'],
