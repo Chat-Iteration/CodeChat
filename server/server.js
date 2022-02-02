@@ -67,7 +67,8 @@ io.on('connection', socket => {
     // console.log(name);
     // console.log(message);
     // const user = getUser(name);
-    io.emit('ping', `${message} from server`);
+    io.emit('ping', {name, message});
+    io.emit('message', {name, message});
     // io.to(user.room).emit('message', { user: user.name, message: message });
   });
 

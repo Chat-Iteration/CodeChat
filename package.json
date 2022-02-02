@@ -33,6 +33,7 @@
     "@testing-library/react": "^12.1.2",
     "babel-jest": "^27.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.12.3",
     "jest": "^27.4.7",
     "jest-environment-jsdom": "^27.4.6",

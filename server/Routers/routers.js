@@ -3,10 +3,34 @@ const homeController = require('../controllers/homeController');
 const loginController = require('../controllers/loginController');
 const chatController = require('../controllers/chatController');
 const router = express.Router();
-
+const axios = require('axios');
+require('dotenv').config();
 // login page
     // some kind of OAuth functionality
-// router.get('/login')
+    router.get('/auth',(req,res)=>{
+        // axios post method that will redirect our user to the github authorization page
+        // then respond with a access token back from github 
+        res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`)
+    })
+
+    router.get('/oauth2callback',({query:{code}},res)=>{
+        const body = {
+            client_id : process.env.CLIENT_ID,
+            client_secret : process.env.CLIENT_SECRET,
+            code,
+        };
+        const options = {headers: {accept: 'application/json'}};
+        axios
+            .post('https://github.com/login/oauth/access_token' , body, options)
+            .then(_res => _res.data.access_token)
+            .then(token=>{
+                console.log('token', token)
+                res.redirect()
+            })
+            .catch(err=>{
+                _res.sendStatus(500);
+            })
+    })
 
 // home page
  // getting list of all the existing chatrooms
