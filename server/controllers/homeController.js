@@ -3,20 +3,20 @@ const homeController = {};
 
 
 homeController.getChatrooms = (req, res, next) => {
-    const sqlQuery = `\
-    SELECT * \
-    FROM chatrooms;
+    const sqlQuery = ` 
+    SELECT * 
+    FROM chatrooms; 
     `;
 
     db.query(sqlQuery)
       .then((data) => {
         // console.log(data);
         res.locals.chatrooms = data.rows;
-        next();
+        return next();
       })
       .catch((err) => {
         console.log('error in getChatrooms middleware')
-        next(err)
+        return next(err)
       })
 
 }
@@ -51,15 +51,17 @@ homeController.newChat = (req, res, next) => {
 
 homeController.loadChat = (req, res, next) => {
     const title = req.body.title
-    const sqlQuery = `\
-    SELECT * \
-    FROM ${title}_chatroom \
-    `;
-
+    const sqlQuery = `SELECT * FROM ${title}_chatroom `;
+    // const sqlQuery = ` 
+    // SELECT * 
+    // FROM chatrooms; 
+    // `;
     db.query(sqlQuery)
-        .then(data => console.log(data))
-        .then(data => res.locals.chat = data.rows)
-        .then(data => next())
+        .then(data => {
+          console.log(data);
+          res.locals.chat = data.rows
+          return next();
+        })
         .catch((err) => {next('issues with loadChat middleware: ', err)})
 }
 

@@ -24,7 +24,11 @@ module.exports = {
     proxy: {
       '/login': 'http://localhost:3000',
       '/home': 'http://localhost:3000',
-      '/newChat': 'http://localhost:3000'
+      '/newChat': 'http://localhost:3000',
+      '/socket.io': {
+        target: 'http://localhost:3000',
+        ws: true,
+    },
     },
     hot: true,
   },

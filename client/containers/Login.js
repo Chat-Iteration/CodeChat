@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,10 +25,10 @@ const Login = props => {
 
 
   const handleLogin = () => {
-    fetch('/', {
+    fetch('/oauth/redirect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: ''
+      body: '',
     });
   };
 
@@ -45,3 +46,10 @@ const Login = props => {
 // };
 
 export default Login;
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+
+
+
+// export default Login
