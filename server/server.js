@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const PORT = 3000;
 const cors = require('cors');
+require('dotenv').config();
 // const socketio = require('socket.io');
 const { Server, Socket } = require('socket.io');
 const { addUser, removeUser, getUser, getUsers } = require('./userFunctions');
@@ -14,6 +15,7 @@ const { addUser, removeUser, getUser, getUsers } = require('./userFunctions');
 // listen on port 3000
 const routerPage = require('./Routers/routers')
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server);
 
@@ -22,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // router handler
 app.use('/', routerPage)
+
 
 // router error 
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));

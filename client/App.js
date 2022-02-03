@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('/home')
+    fetch('/server/login')
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   refresh() {
-    fetch('/home')
+    fetch('/server/login')
       .then(res => res.json())
       .then(data => {
         // console.log(data);

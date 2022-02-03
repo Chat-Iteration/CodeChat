@@ -21,14 +21,20 @@ module.exports = {
       publicPath: '/',
       directory: path.resolve(__dirname, 'dist'),
     },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization"
+  },
     proxy: {
-      '/login': 'http://localhost:3000',
-      '/home': 'http://localhost:3000',
-      '/newChat': 'http://localhost:3000',
+      '/server': 'http://localhost:3000',
+      // '/home': 'http://localhost:3000',
+      // '/newChat': 'http://localhost:3000',
       '/socket.io': {
         target: 'http://localhost:3000',
         ws: true,
     },
+    
     },
     hot: true,
   },

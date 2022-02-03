@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 async function loginUser(credentials) {
   return fetch('/login', {
     method: 'POST',
@@ -13,7 +14,12 @@ async function loginUser(credentials) {
     .then(data => data.json())
  }
 
-const Login = props => {
+//  function handleLogin () {
+//   fetch('http://localhost:3000/auth')
+//   // .then(res => console.log(res))
+//   // .catch(err => console.log(err));
+// }
+  const Login = props => {
   // const handleSubmit = async e => {
   //   e.preventDefault();
   //   const token = await loginUser({
@@ -23,33 +29,37 @@ const Login = props => {
   //   setToken(token);
   // }
 
-
-  const handleLogin = () => {
-    fetch('/oauth/redirect', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: '',
-    });
+    const handleLogin = () => {
+    fetch('/auth',{
+      mode: 'no-cors',
+      header:{
+        'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Headers': 'Content-Type'
+      }
+    })
+    .then(res => console.log('working',res))
   };
+
+  // const handleLogin = () => {
+  //   fetch('/server/auth')
+  //   .then(res => console.log('working',res))
+  // };
 
   return (
     <div className="logincontainer">
       <h1>Please Log In via GitHub Authentication</h1>
-      {/* <button onClick={handleLogin}>Login</button> */}
-      <button onClick={props.handleClick}>Login</button>
+      <button onClick={()=> handleLogin()}>Login</button>
     </div>
   );
 }
 
 // Login.propTypes = {
-//   setToken: PropTypes.func.isRequired
-// };
-
-export default Login;
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-
-
-
-// export default Login
+  //   setToken: PropTypes.func.isRequired
+  // };
+  
+  
+  
+  
+  
+  export default Login;
+  /* <button onClick={handleLogin}>Login</button> */

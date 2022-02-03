@@ -2,15 +2,17 @@ const express = require('express');
 const homeController = require('../controllers/homeController');
 const loginController = require('../controllers/loginController');
 const chatController = require('../controllers/chatController');
+const path = require('path');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
-// login page
+// login pag
     // some kind of OAuth functionality
     router.get('/auth',(req,res)=>{
         // axios post method that will redirect our user to the github authorization page
         // then respond with a access token back from github 
-        res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`)
+        // console.log('ASDFG');
+        res.status(201).redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`)
     })
 
     router.get('/oauth2callback',({query:{code}},res)=>{
@@ -25,10 +27,10 @@ require('dotenv').config();
             .then(_res => _res.data.access_token)
             .then(token=>{
                 console.log('token', token)
-                res.redirect()
+                res.redirect(`/token=${token}`)
             })
             .catch(err=>{
-                _res.sendStatus(500);
+                res.sendStatus(500);
             })
     })
 
