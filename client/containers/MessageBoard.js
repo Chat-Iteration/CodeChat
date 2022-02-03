@@ -6,6 +6,14 @@ import FavoriteElement from '../components/FavoriteElement';
 import AddChatroom from '../components/AddChatroom';
 
 const MessageBoard = props => {
+  const url = new URL(window.location);
+  const URL_PARAMS = new URLSearchParams(token);
+  // const URL = new URLSearchParams(token);
+  const token = url.search;
+  const name = url.search;
+;
+
+    
 
   const chatrooms = props.chatrooms.map((el, i) => <ChatroomElement key={i} i={i} name={props.name} chatroomName={el.title} status={el.status} password={el.password}/>)
   const favorites = props.favorites.map((el, i) => <FavoriteElement key={i} i={i} name={props.name} chatroomName={el} />)
@@ -14,6 +22,7 @@ const MessageBoard = props => {
 
   return (
     <div className='messageBoard'>
+      <h1>Hello {props.name}</h1>
       <AddChatroom refresh={props.refresh}/>
       <header>
         <h1>CodeChat Chatrooms</h1>

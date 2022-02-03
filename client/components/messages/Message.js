@@ -7,9 +7,12 @@ const Message = props => {
   const { name, message } = props;
 
   return (
-    <div>
-      <h2> {name} : {message} </h2>
-    </div>
+    // <div>
+      // <h2> {name} : {message} </h2>
+    // </div>
+    <li>
+      {name} : {message}
+    </li>
   )
   // const { msgReceived: { user, message }, username} = props;
   // const author = user;

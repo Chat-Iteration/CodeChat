@@ -49,8 +49,7 @@ async function loginUser(credentials) {
   return (
     <div className="logincontainer">
       <h1>Please Log In via GitHub Authentication</h1>
-      <a href="http://localhost:3000/server/auth">CLICK HERE</a>
-      <button onClick={props.handleClick}>Login</button>
+      <button onClick={() => window.location.replace('http://localhost:3000/server/auth')}>Login</button>
     </div>
   );
 }
