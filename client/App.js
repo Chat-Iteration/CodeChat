@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('/server/login')
+    fetch('/')
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   logIn() {
+    console.log('log in click')
     this.setState({
       ...this.state,
       loggedIn: true
@@ -53,7 +54,7 @@ class App extends Component {
   }
 
   refresh() {
-    fetch('/server/login')
+    fetch('/')
       .then(res => res.json())
       .then(data => {
         // console.log(data);

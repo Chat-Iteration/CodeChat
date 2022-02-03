@@ -29,16 +29,17 @@ async function loginUser(credentials) {
   //   setToken(token);
   // }
 
-    const handleLogin = () => {
-    fetch('/auth',{
-      mode: 'no-cors',
-      header:{
-        'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Headers': 'Content-Type'
-      }
-    })
-    .then(res => console.log('working',res))
-  };
+  //   const handleLogin = () => {
+  //   fetch('http://localhost:3000/auth',{
+  //     mode: 'no-cors',
+  //     header:{
+  //       'Access-Control-Allow-Origin': '*',
+  //       'Access-Control-Allow-Headers': 'Content-Type'
+  //     }
+  //   })
+  //   .then(res => console.log('working',res))
+  //   .catch(err => console.log('error', err));
+  // };
 
   // const handleLogin = () => {
   //   fetch('/server/auth')
@@ -48,7 +49,8 @@ async function loginUser(credentials) {
   return (
     <div className="logincontainer">
       <h1>Please Log In via GitHub Authentication</h1>
-      <button onClick={()=> handleLogin()}>Login</button>
+      <a href="http://localhost:3000/server/auth">CLICK HERE</a>
+      <button onClick={props.handleClick}>Login</button>
     </div>
   );
 }

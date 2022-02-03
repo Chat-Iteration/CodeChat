@@ -27,7 +27,9 @@ module.exports = {
       "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization"
   },
     proxy: {
-      '/server': 'http://localhost:3000',
+      // '/server': 'http://localhost:3000',
+      '/auth': 'http://localhost:3000',
+      '/oauth2callback': 'http://localhost:3000',
       // '/home': 'http://localhost:3000',
       // '/newChat': 'http://localhost:3000',
       '/socket.io': {

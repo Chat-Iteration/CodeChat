@@ -4,6 +4,6 @@ import App from './App';
 import styles from './style.scss';
 
 render(
-  <App />, 
+  <App />,
   document.querySelector('#root')
 );

@@ -2,37 +2,41 @@ const express = require('express');
 const homeController = require('../controllers/homeController');
 const loginController = require('../controllers/loginController');
 const chatController = require('../controllers/chatController');
-const path = require('path');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
+
 // login pag
     // some kind of OAuth functionality
     router.get('/auth',(req,res)=>{
         // axios post method that will redirect our user to the github authorization page
         // then respond with a access token back from github 
-        // console.log('ASDFG');
-        res.status(201).redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`)
+        console.log('ASDFG');
+        res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=http://localhost:8080/oauth2callback`);
+        // res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=www.google.com`);
     })
 
-    router.get('/oauth2callback',({query:{code}},res)=>{
-        const body = {
-            client_id : process.env.CLIENT_ID,
-            client_secret : process.env.CLIENT_SECRET,
-            code,
-        };
-        const options = {headers: {accept: 'application/json'}};
-        axios
-            .post('https://github.com/login/oauth/access_token' , body, options)
-            .then(_res => _res.data.access_token)
-            .then(token=>{
-                console.log('token', token)
-                res.redirect(`/token=${token}`)
-            })
-            .catch(err=>{
-                res.sendStatus(500);
-            })
-    })
+    // router.get('/oauth2callback',({query:{code}},res)=>{
+    // router.get('/oauth2callback', ({query:{code}}, res)=>{
+    //     console.log('in /oauth2callback route', req);
+    //     const body = {
+    //         client_id : process.env.CLIENT_ID,
+    //         client_secret : process.env.CLIENT_SECRET,
+    //         code,
+    //     };
+    //     const options = {headers: {Accept: 'application/json'}};
+    //     axios
+    //         .post(`https://github.com/login/oauth/access_token` , body, options)
+    //         .then((_res) => _res.data.access_token)
+    //         .then((token)=>{
+    //             console.log('token', token);
+    //              res.redirect(`/?token=${token}`);
+    //         })
+    //         // .catch(err => res.status(406).json({'test': 'err'}))
+    //         .catch((err) => res.status(500).json(console.log({ err: err.message })))
+    
+    // })
+/************************ *********************************************************************************************************/
 
 // home page
  // getting list of all the existing chatrooms
