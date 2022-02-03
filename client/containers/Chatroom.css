@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     background-color: #F7F7F7;
+    flex-direction: column;
 }
 
 .container {
@@ -29,5 +30,15 @@
 }
 
 .messagesContainer {
-  border-bottom: 5px solid black;
+  /* border-bottom: 5px solid black; */
+  display: flex;
+  flex-direction: column;
+  border: 10px red solid;
+  overflow: auto;
+  align-items: flex-start;
+}
+
+li {
+  border: 1px pink solid;
+  height: 1rem;
 }

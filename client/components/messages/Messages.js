@@ -14,10 +14,14 @@ const Messages = props => {
     return <Message {...message} />
   }
   const msgs = messages.map((msg) => messageMaker(msg));
+  console.log('in messages: ', messages);
   return (
-    <div className='messagesContainer'>
+    // <div className='messagesContainer'>
+    //   {msgs}
+    // </div>
+    <ul className='messagesContainer' >
       {msgs}
-    </div>
+    </ul>
     );
 };
 
