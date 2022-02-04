@@ -16,8 +16,7 @@ class ChatroomRefactor extends React.Component {
 
         // get room name from props to test multiple
         this.state = {
-            // name: 'Mike',
-            name: (Math.floor(Math.random() * 20)).toString(),
+            // name: (Math.floor(Math.random() * 20)).toString(),
             room: 'Test room',
             message: '',
             messages: [],
@@ -65,7 +64,7 @@ class ChatroomRefactor extends React.Component {
         e.preventDefault();
         console.log(this.props.info);
         console.log(this.state.message);
-        const bad = ['bitch','fucked','fuck','fuckk','fucker','shit','dick','ass', 'sqlsucks','mongoisgood'];
+        const bad = ['bitch','fucked','fuck','fuckk','fucker','shit','ass', 'sqlsucks','mongoisgood'];
         const messageArr = this.state.message.split(' ');
         for (let word of messageArr) {
             if (bad.includes(word.toLowerCase())) {
@@ -74,7 +73,8 @@ class ChatroomRefactor extends React.Component {
         }
         const filteredMessage = messageArr.join(' ');
 
-        const payload = {info: this.props.info, name: this.state.name, message: filteredMessage};
+        const payload = {info: this.props.info, name: this.props.name, message: filteredMessage};
+        // const payload = {info: this.props.info, name: this.state.name, message: filteredMessage};
         console.log('from send message: ', payload);
         this.socket.emit('sendMessage', payload);
     }
@@ -85,7 +85,8 @@ class ChatroomRefactor extends React.Component {
             <div className='container'>
                 <ChatRoomInfo room={this.props.info} />
                 {/* <ChatRoomInfo room={this.state.room} /> */}
-                <Messages messages={this.state.messages} name={this.state.name}/>
+                {/* <Messages messages={this.state.messages} name={this.state.name}/> */}
+                <Messages messages={this.state.messages} name={this.props.name}/>
                 <Input setMessage={this.handleInput} sendMessage={this.sendMessage} message={this.state.message}/>
             </div>
         </div>

@@ -1,9 +1,15 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 .chatroom {
   display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #F7F7F7;
+    width: 100vw;
+    background-color: lightslategray;
     flex-direction: column;
 }
 
@@ -11,7 +17,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #FFFFFF;
+  background:  repeating-linear-gradient(112deg,rgb(235, 235, 238), rgb(202, 202, 201), rgb(222, 238, 234), #615e5e);
   border-radius: 8px;
   height: 80%;
   width: 80%;
@@ -20,7 +26,7 @@
 
 .infoBar h4 {
   font-size: 70px;
-  color: green;
+  color: rgb(0, 0, 0);
   margin: 10px 0 0 20px;
 }
 
@@ -32,13 +38,20 @@
 .messagesContainer {
   /* border-bottom: 5px solid black; */
   display: flex;
+  align-self: auto;
   flex-direction: column;
-  border: 10px red solid;
   overflow: auto;
   align-items: flex-start;
+  justify-content: flex-start;
+  list-style-type: none;
+  margin-bottom: auto;
 }
 
+/* ul {
+  list-style-type: none;
+} */
+
 li {
-  border: 1px pink solid;
+
   height: 1rem;
 }

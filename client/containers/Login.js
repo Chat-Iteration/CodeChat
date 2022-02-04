@@ -45,10 +45,15 @@ async function loginUser(credentials) {
   //   fetch('/server/auth')
   //   .then(res => console.log('working',res))
   // };
-
-  return (
+  
+  // https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+  return (  
     <div className="logincontainer">
-      <h1>Please Log In via GitHub Authentication</h1>
+      <h1>CODE-CHAT</h1>
+      <h1>Login Through Github</h1>
+      
+       {/* <img id ='gitpic' src='https://i.imgur.com/60KnVpS.png'/> */}
+       <img id ='gitpic' src='https://i.imgur.com/lwzh3Qp.png'/>
       <button onClick={() => window.location.replace('http://localhost:3000/server/auth')}>Login</button>
     </div>
   );

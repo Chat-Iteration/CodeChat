@@ -19,11 +19,11 @@ const ChatroomElement = props => {
 
   return(
     <div className='chatroomrows'>
-      <h2 onClick={(e) => {
+      <h3 class='chat-room-btn' onClick={(e) => {
         // navigate(`/chatroom/${props.chatroomName}`);
         // navigate(`/chatroom?name=${props.name}&room=${props.chatroomName}`);
         navigate('/chatroom', {state: {name: props.name, room: props.chatroomName}});
-      }}>Chatroom Title: {props.chatroomName}</h2>
+      }}>Chatroom Title: {props.chatroomName}</h3>
 
       {/* <Link to={`/chatroom?name=${props.name}&room=${props.chatroomName}`}>
         <button type='submit'>Chatroom Title: {props.chatroomName}</button>
