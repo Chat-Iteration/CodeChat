@@ -13,6 +13,7 @@ const Messages = props => {
   const messageMaker = (message) => {
     return <Message {...message} />
   }
+
   const msgs = messages.map((msg) => messageMaker(msg));
   console.log('in messages: ', messages);
   return (

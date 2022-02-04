@@ -6,12 +6,12 @@ import FavoriteElement from '../components/FavoriteElement';
 import AddChatroom from '../components/AddChatroom';
 
 const MessageBoard = props => {
-  const url = new URL(window.location);
-  const URL_PARAMS = new URLSearchParams(token);
-  // const URL = new URLSearchParams(token);
-  const token = url.search;
-  const name = url.search;
-;
+//   const url = new URL(window.location);
+//   const URL_PARAMS = new URLSearchParams(token);
+//   // const URL = new URLSearchParams(token);
+//   const token = url.search;
+//   const name = url.search;
+// ;
 
     
 
@@ -35,7 +35,7 @@ const MessageBoard = props => {
         <nav>
           <h2 id='favorites'> Favorites </h2>
           {favorites}
-          <button onClick={props.signout}>Sign Out</button>
+          
         </nav>
         <section>
           {chatrooms}

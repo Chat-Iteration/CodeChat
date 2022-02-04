@@ -1,12 +1,15 @@
-html {
-  height: 98%;
-  width: 99%;
-}
+// html {
+//   height: 98%;
+//   width: 99%;
+// }
 
-* {
-  height: 100%;
-  width: 100%;
-}
+// * {
+//   height: 100%;
+//   width: 100%;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap');
+
 
 .logincontainer {
   * {
@@ -14,18 +17,40 @@ html {
     width: initial;
   }
 
-  background-color: gray;
-  height: 60%;
-  width: 95%;
+  // background-color: rgb(14, 17, 23);
+  background: repeating-linear-gradient(112deg,rgb(119, 119, 218), rgb(223, 238, 9), #cc3acc, #db270f);
+  // background: radial-gradient(closest-side, #7272db, rgb(3, 168, 86), #cf4ccf);
+  // font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Balsamiq Sans', serif;
+  color:rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
   text-align: center;
-  padding-top: 25%;
+  // position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  column-gap: 10px;
+
+  button {
+    background-color: rgba(24, 167, 11, 0.849);
+    color: rgb(255, 248, 248);
+    border-radius: 5px;
+    border: 1px solid rgba(24, 167, 11, 0.849);
+    padding: 5px 15px;
+  }
+  button:hover {
+    background-color: rgba(20, 153, 8, 0.774);
+    color: rgb(255, 248, 248);
+    cursor:pointer;
+   
+  }
 }
 
 .messageBoard {
   display: flex;
   flex-direction: column;
-  height: 90%;
-  width: 90%;
   margin: 1rem;
 
   * {
@@ -33,23 +58,27 @@ html {
     width: initial;
   }
 
+
   header {
-    background-color: #253237;
+    background-color: #3a5763;
     color: white;
     height: 8rem;
     padding-left: 20px;
     display: flex;
     align-items: center;
     position: relative;
+    border-radius: 5px;
 
     h1 {
       font-size: 60px;
       margin: 0;
+      font-family: 'Balsamiq Sans', serif;
     }
 
     button {
-      background-color: #5C6B73;
+      background-color: rgb(22, 27, 34);
       border: 1px solid #5C6B73;
+      border-radius: 5px ;
       color: white;
       font: 1.8rem bold;
       position: absolute;
@@ -57,6 +86,11 @@ html {
       height: 100%;
       overflow-wrap: normal;
       width: 10rem;
+      &:hover{
+        background-color: rgb(85, 109, 143);
+        color: rgb(0, 3, 7);
+        cursor: pointer;
+      }
     }
   }
 
@@ -67,20 +101,25 @@ html {
 
   nav {
     background-color: #9DB4C0;
-    color: white;
-    height: 100%;
+    color: rgb(250, 250, 250);
     width: 15rem;
     position: relative;
-
+    border-radius:5px 0 0 5px;
+    
     #favorites {
       color: #253237;
       font-size: 2rem;
       text-align: center;
       margin: 15px 0 0 0;
     }
-
+    
     .favorites {
       text-align: center;
+      cursor: pointer;
+      font-family: sans-serif;
+      &:hover{
+        color: rgb(219, 91, 91);
+      }
     }
 
     button {
@@ -96,17 +135,19 @@ html {
   }
 
   section {
-    background-color: #C2DFE3;
+    background-color: rgb(139, 159, 161);
     height: 100%;
     width: 100%;
 
     .chatroomrows {
       margin: 5px;
-      padding-left: 10px;
-      border: 1px solid black;
+      padding:15px 10px;
+      border: 0.5px solid black;
+      border-radius: 5px;
       display: flex;
       position: relative;
-
+      cursor: pointer;
+      
       button {
         // background-color: mediumseagreen;
         // border: 1px solid mediumseagreen;
@@ -119,6 +160,10 @@ html {
         // width: 10rem;
       }
     }
+  }
+  .chatroomrows:hover{
+    cursor: pointer;
+    background-color: rgb(250, 114, 114);
   }
 
   .chatroomPassword, #addChatroom {
@@ -163,4 +208,7 @@ html {
       margin: 0 10px;
     }
   }
+}
+#gitpic{
+  margin-bottom: 15px;
 }

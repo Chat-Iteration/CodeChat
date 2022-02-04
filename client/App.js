@@ -4,6 +4,7 @@ import Login from './containers/Login';
 // import Chatroom from './containers/Chatroom';
 import MessageBoard from './containers/MessageBoard';
 import ChatroomRefactor from './containers/ChatroomRefactor';
+import RoomsContainer from './containers/RoomsContainer';
 
 // const URL_PARAMS = new URLSearchParams(window.location.search);
 const url = new URL(window.location);
@@ -28,7 +29,7 @@ class App extends Component {
       login: null,
       // loggedIn: false,
       loggedIn: false,
-      chatrooms: [{title:'Michael', status:'Closed', password:''}, {title:'Kai', status:'Closed', password:''}, {title:'Catilin', status:'Open', password:''}],
+      chatrooms: [{title:'Secret Chat 🤫', status:'Open', password:''}, {title:'Code Talk', status:'Open', password:''}, {title:'🐧', status:'Open', password:''}],
       favorites: ['Brian', 'Eric', 'Kerolos', 'Mike'],
     };
     // const [token, setToken] = useState();
@@ -109,9 +110,9 @@ class App extends Component {
           <Routes>
             {/* <Route exact path='/' element={<MessageBoard refresh={this.refresh} signout={this.signOut} chatrooms={this.state.chatrooms} favorites={this.state.favorites}/>} /> */}
             <Route exact path='/' element={<MessageBoard refresh={this.refresh} signout={this.signOut} name={this.state.login} chatrooms={this.state.chatrooms} favorites={this.state.favorites}/>} />
-            <Route path='/chatroom' element={<ChatroomRefactor info='test room' />} />
-            {/* <Route path='/chatroom/:id' element={<ChatroomRefactor info='test room' />} /> */}
-            {/* <Route path='/chatroom' element={<Chatroom />} /> */}
+            <Route path='/chatroom' element={<RoomsContainer name={this.state.login} info='test room' />} />
+            {/* <Route path='/chatroom' element={<ChatroomRefactor name={this.state.login} info='test room' />} /> */}
+
           </Routes>
         </Router>
       </div>

@@ -35,7 +35,7 @@ module.exports = {
       '/socket.io': {
         target: 'http://localhost:3000',
         ws: true,
-    },
+      },
     
     },
     hot: true,

@@ -8,7 +8,6 @@ require('dotenv').config();
 const { Server, Socket } = require('socket.io');
 const { addUser, removeUser, getUser, getUsers } = require('./userFunctions');
 const axios = require('axios');
-
 // express server
 // -> create httpserver with express server
 // --> create socket io server
